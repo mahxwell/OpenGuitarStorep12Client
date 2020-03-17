@@ -10,7 +10,7 @@ export class UserService {
 
   users: User[] = [];
   private forumUrl = 'http://localhost:9003/findall';
-  userSubject = new Subject<User[]>();
+  userSubject = new Subject<any[]>();
 
   constructor(private http: HttpClient) {
   }
@@ -21,7 +21,7 @@ export class UserService {
 
   getUser() {
 
-    this.http.get<any[]>(this.forumUrl)
+    this.http.get<User[]>(this.forumUrl)
       .subscribe(
         (response) => {
           this.users = response;

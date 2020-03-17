@@ -23,13 +23,6 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getUser();
-   /* this.userSubscription = this.userService.userSubject.subscribe(
-      (users: User[]) => {
-        this.users = users;
-      }
-    );
-    this.userService.emitUser();*/
   }
 
   onFetch() {
