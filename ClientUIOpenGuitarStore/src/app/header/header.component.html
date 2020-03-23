@@ -11,11 +11,22 @@
         <li class="nav-item">
           <a class="nav-link" href="guitars">Guitares</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Vendre</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="login" *ngIf="isUserLoggedIn== false">Se Connecter</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Se Connecter</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" href="" *ngIf="isUserLoggedIn== false">Créer un Compte</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isUserLoggedIn==true">
+          <a class="nav-link" style="color: white">| Bonjour {{userpseudo}} | </a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn==true">
+          <a class="nav-link" href="" style="color: grey">Gérer mon Compte</a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn==true">
+          <a class="nav-link" href="welcome" *ngIf="isUserLoggedIn== true" (click)="logOutUser()" style="color: red">Se
+            Deconnecter </a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
