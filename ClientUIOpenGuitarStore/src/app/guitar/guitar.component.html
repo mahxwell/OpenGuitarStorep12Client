@@ -24,12 +24,19 @@
             <p align="center">Année du Modèle : {{guitar.guitaryear}}</p>
             <p align="center">Etat : {{guitar.guitarstatus}}</p>
             <p align="center">Disponibilité : {{guitar.stock}}</p>
-          <p align="center">Prix : {{guitar.guitarprice}}</p></td>
-
+            <p align="center">Prix : {{guitar.guitarprice}}</p>
+            <a class="nav-link" href="addreviews" align="center" *ngIf="userConnected==true">Donnez votre avis</a></td>
         </tr>
       </table>
     </div>
   </div>
 </div>
+<hr>
+<h2 align="center">Avis Clients </h2>
+<li class="list-group-item" align="center" *ngFor="let review of reviews;">
+
+  <p>{{review.reviewcostumername}} le {{review.reviewdate}} : {{review.reviewcomment}}</p>
+  <p>Note : {{review.reviewnote}} /10</p>
+</li>
 <hr>
 </body>

@@ -18,18 +18,50 @@ export class AuthenticationService {
               private router: Router) {
   }
 
-  /*  addUser(user: User) {
-      this.http
-        .post(this.userUrl + '/add', user)
-        .subscribe(
-          () => {
-            console.log('Enregistrement terminé !');
-          },
-          (error) => {
-            console.log('Erreur ! : ' + error);
-          }
-        );
-    }*/
+  addUser(user: User) {
+    this.http
+      .post(this.userUrl + 'add/', user)
+      .subscribe(
+        () => {
+          console.log('Enregistrement terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+
+  updateUser(user: User) {
+    this.http
+      .post(this.userUrl + 'update/', user)
+      .subscribe(
+        () => {
+          console.log('Maj terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+
+  deleteUser() {
+    const id = sessionStorage.getItem('id');
+    this.http
+      .delete(this.userUrl + 'user/delete/' + id)
+      .subscribe(
+        () => {
+          console.log('Delete terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+
+    sessionStorage.removeItem(('id'));
+    sessionStorage.removeItem('mail');
+    sessionStorage.removeItem('pseudo');
+    this.router.navigate(['welcome']);
+  }
 
   authentication(mail: string, password: string) {
     return this.http.get(this.userUrl + 'get/' + mail + '/' + password)
@@ -48,8 +80,6 @@ export class AuthenticationService {
           this.router.navigate(['']);
         }
       );
-
-
   }
 
   logOut() {

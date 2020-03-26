@@ -8,8 +8,7 @@ export class User {
     newsletter: string;
 
 
-  constructor(id: number, name: string, surname: string, pseudo: string, mail: string, password: string, newsletter: string) {
-    this.id = id;
+  constructor(name: string, surname: string, pseudo: string, mail: string, password: string, newsletter: string) {
     this.name = name;
     this.surname = surname;
     this.pseudo = pseudo;

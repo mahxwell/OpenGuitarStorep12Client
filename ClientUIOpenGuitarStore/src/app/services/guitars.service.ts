@@ -33,6 +33,7 @@ export class GuitarsService {
   }
 
   getOneGuitar(id: number) {
+    sessionStorage.setItem('guitarid', String(id));
     return this.http.get(this.guitarUrl + '/guitars/' + id);
   }
 }

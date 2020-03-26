@@ -15,6 +15,10 @@ import {GuitarsService} from './services/guitars.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthenticationService} from './services/authentication.service';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { AccountmanagementComponent } from './accountmanagement/accountmanagement.component';
+import { CurrentorderComponent } from './accountmanagement/currentorder/currentorder.component';
+import { AddreviewComponent } from './guitar/addreview/addreview.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -23,6 +27,10 @@ const appRoutes: Routes = [
   { path: 'guitars/:id', component: GuitarComponent},
   { path: 'users', component: UserComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'accountmanagement', component: AccountmanagementComponent},
+  { path: 'currentorder', component: CurrentorderComponent},
+  { path: 'addreviews', component: AddreviewComponent}
 ];
 
 @NgModule({
@@ -34,7 +42,11 @@ const appRoutes: Routes = [
     WelcomeComponent,
     GuitarComponent,
     GuitarsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    AccountmanagementComponent,
+    CurrentorderComponent,
+    AddreviewComponent
   ],
   imports: [
     BrowserModule,
