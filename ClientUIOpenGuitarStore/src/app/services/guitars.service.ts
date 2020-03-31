@@ -14,8 +14,7 @@ export class GuitarsService {
   private guitarUrl = 'http://localhost:9002';
   guitarSubject = new Subject<any[]>();
 
-  constructor(private http: HttpClient,
-              private router: Router) {
+  constructor(private http: HttpClient) {
   }
 
   emitGuitar() {

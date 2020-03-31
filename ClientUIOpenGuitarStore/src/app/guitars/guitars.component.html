@@ -1,4 +1,3 @@
-<p>guitars works!</p>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,11 +17,10 @@
     <li class="list-group-item" *ngFor="let guitar of guitars;let i = index;">
       <div class="col-md-8 pb-1 pb-md-0" align="center">
         <div class="card">
-          <img class="card-img-top" src="assets/images/400X200.gif" alt="Card image cap">
+          <img class="card-img-top"  src="{{guitar.guitarimageurl}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{ guitar.guitarname }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <h5 class="card-title">{{ guitar.guitarbrand }} {{ guitar.guitarname }}</h5>
+            <p class="card-text">{{guitar.guitardescription}}</p>
             <button class="btn btn-primary" (click)="onViewGuitar(guitar.guitarid)">Détails</button>
           </div>
         </div>

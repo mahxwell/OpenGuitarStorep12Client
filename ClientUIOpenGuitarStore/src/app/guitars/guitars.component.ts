@@ -10,10 +10,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./guitars.component.css']
 })
 export class GuitarsComponent implements OnInit {
+
   guitars: Guitar[] = [];
   guitarSubscription: Subscription;
 
-  constructor(private guitarService: GuitarsService, private router: Router) {
+  constructor(private guitarService: GuitarsService,
+              private router: Router) {
     this.guitarSubscription = this.guitarService.guitarSubject.subscribe(
       (guitars: Guitar[]) => {
         this.guitars = guitars;

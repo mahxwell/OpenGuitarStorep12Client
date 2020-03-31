@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderComponent} from '../header/header.component';
+import {OrderService} from '../services/order.service';
+import {Guitar} from '../models/Guitar.model';
+import {HttpClient} from '@angular/common/http';
+import {Subject} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,10 +12,35 @@ import {Router} from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private router: Router) {
+  guitars: Guitar[] = [];
+  guitarSubject = new Subject<any[]>();
+
+  private welcomeUrl = 'http://localhost:9005';
+
+  constructor(private http: HttpClient,
+              private router: Router) {
+
+    this.http.get<Guitar[]>(this.welcomeUrl + '/welcomeorder')
+      .subscribe(
+        (response) => {
+          this.guitars = response;
+          this.emitGuitar();
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
   }
 
   ngOnInit(): void {
+  }
+
+  emitGuitar() {
+    this.guitarSubject.next(this.guitars.slice());
+  }
+
+  onViewGuitar(id: number) {
+    this.router.navigate(['guitars/', id]);
   }
 
 }

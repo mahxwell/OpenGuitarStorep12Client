@@ -48,19 +48,6 @@ export class GuitarComponent implements OnInit {
 
   getReview(guitaridguitar: number) {
     this.reviewService.getReviewsByGuitarId(guitaridguitar);
-    this.reviewSubscription = this.reviewService.reviewSubject.subscribe(
-      (reviews1: Review[]) => {
-        this.reviews = reviews1;
-      }
-    );
-    this.reviewService.emitReview();
-  }
-
-  getAverageMark(reviews: Review[]) {
-
-    const sum = (numbers: number[]) => numbers.reduce((total, aNumber) => total + aNumber, 0);
-
-    const average = (numbers: number[]) => sum(numbers) / numbers.length;
   }
 
 }

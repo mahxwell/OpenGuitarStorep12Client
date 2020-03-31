@@ -1,4 +1,3 @@
-<p>header works!</p>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="welcome">OpenGuitarStore</a>
@@ -32,7 +31,6 @@
       <form [formGroup]="searchForm" (ngSubmit)="search()" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Chercher une Guitare" aria-label="Search"
                formControlName="searchbox">
-        <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>-->
         <button class="btn btn-outline-success my-2 my-sm-0" [disabled]="searchForm.invalid"
                 type="submit">Rechercher
         </button>
