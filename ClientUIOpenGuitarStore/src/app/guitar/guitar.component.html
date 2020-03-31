@@ -25,7 +25,10 @@
             <p align="center">Etat : {{guitar.guitarstatus}}</p>
             <p align="center">Disponibilité : {{guitar.stock}}</p>
             <p align="center">Prix : {{guitar.guitarprice}}</p>
-            <a class="nav-link" href="addreviews" align="center" *ngIf="userConnected==true">Donnez votre avis</a></td>
+            <a class="nav-link" href="addreviews" align="center" *ngIf="userConnected==true">Donnez votre avis</a>
+            <a class="nav-link" href="addorder" align="center" style="color: red"
+               *ngIf="userConnected==true">Acheter</a>
+          </td>
         </tr>
       </table>
     </div>

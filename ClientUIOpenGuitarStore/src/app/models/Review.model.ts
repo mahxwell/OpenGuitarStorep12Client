@@ -4,7 +4,7 @@ export class Review {
   reviewnote: number;
   reviewcostumername: string;
   guitaridguitar: number;
-  useriduser: number;
+  costumeridcostumer: number;
 
 
   constructor(reviewdate: string,
@@ -12,13 +12,13 @@ export class Review {
               reviewnote: number,
               reviewcostumername: string,
               guitaridguitar: number,
-              useriduser: number) {
+              costumeridcostumer: number) {
     this.reviewdate = reviewdate;
     this.reviewcomment = reviewcomment;
     this.reviewnote = reviewnote;
     this.reviewcostumername = reviewcostumername;
     this.guitaridguitar = guitaridguitar;
-    this.useriduser = useriduser;
+    this.costumeridcostumer = costumeridcostumer;
   }
 
 

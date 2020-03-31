@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ReviewService} from '../../services/review.service';
-import {Data, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Review} from '../../models/Review.model';
 
 @Component({
@@ -12,8 +12,8 @@ import {Review} from '../../models/Review.model';
 export class AddreviewComponent implements OnInit {
 
   reviewForm: FormGroup;
-
   date: Date;
+
   constructor(private formBuilder: FormBuilder,
               private reviewService: ReviewService,
               private router: Router) {
@@ -25,12 +25,8 @@ export class AddreviewComponent implements OnInit {
 
   initForm() {
     this.reviewForm = this.formBuilder.group({
-      reviewdate: '',
       reviewcomment: '',
-      reviewnote: '',
-      reviewcostumername: '',
-      guitaridguitar: '',
-      useriduser: ''
+      reviewnote: ''
     });
   }
 
@@ -43,7 +39,7 @@ export class AddreviewComponent implements OnInit {
 
     const reviewcostumername = sessionStorage.getItem('pseudo');
     const guitaridguitar = Number(sessionStorage.getItem('guitarid'));
-    const useriduser = Number(sessionStorage.getItem('id'));
+    const costumeridcostumer = Number(sessionStorage.getItem('id'));
 
     const newReview = new Review(
       reviewdate,
@@ -51,7 +47,7 @@ export class AddreviewComponent implements OnInit {
       formValue[reviewnote],
       reviewcostumername,
       guitaridguitar,
-      useriduser,
+      costumeridcostumer
     );
 
     this.reviewService.addReview(newReview);

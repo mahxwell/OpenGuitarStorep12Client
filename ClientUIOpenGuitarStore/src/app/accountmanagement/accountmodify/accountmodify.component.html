@@ -1,0 +1,82 @@
+<p>accountmodify works!</p>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap eCommerce Page Template</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="row">
+  <div class="col-lg-3">
+  </div>
+  <div class="col-lg-6">
+    <br/>
+    <br/>
+    <br/>
+    <div class="nes-container is-rounded">
+      <h2 align="center">Modifier votre compte</h2>
+      <br/>
+      <h3 align="center">Vos Nouveau Identifiants</h3>
+      <br/>
+      <br/>
+      <form [formGroup]="updateForm" (ngSubmit)="updateUser()">
+        <div class="form-group" align="center">
+
+          <label for="name"></label>
+          <input type="text"
+                 id="name"
+                 class="nes-textarea"
+                 formControlName="name" placeholder="Entrez votre Nom">
+          <br/>
+          <label for="surname"></label>
+          <input type="text"
+                 id="surname"
+                 class="nes-textarea"
+                 formControlName="surname" placeholder="Entrez votre Prénom">
+          <br/>
+          <label for="pseudo"></label>
+          <input type="text"
+                 id="pseudo"
+                 class="nes-textarea"
+                 formControlName="pseudo" placeholder="Entrez votre Pseudo">
+          <br/>
+          <label for="mail"></label>
+          <input type="text"
+                 id="mail"
+                 class="nes-textarea"
+                 formControlName="mail" placeholder="Entrez votre Email">
+          <br/>
+          <label for="password"></label>
+          <input type="password"
+                 id="password"
+                 class="nes-textarea"
+                 formControlName="password" placeholder="Entrez votre Password">
+          <br/>
+          <br/>
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <label for="newsletter">Abonnement Newsletter</label>
+
+          <br/>
+          <br/>
+          <button class="btn btn-success"
+                  type="submit"
+                  [disabled]="updateForm.invalid">Modifier mon compte
+          </button>
+          <br/>
+          <br/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-3">
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
+</body>
+</html>

@@ -5,13 +5,13 @@ import {Router} from '@angular/router';
 import {User} from '../../models/User.model';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-accountmodify',
+  templateUrl: './accountmodify.component.html',
+  styleUrls: ['./accountmodify.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class AccountmodifyComponent implements OnInit {
 
-  signupForm: FormGroup;
+  updateForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   }
 
   initForm() {
-    this.signupForm = this.formBuilder.group({
+    this.updateForm = this.formBuilder.group({
       name: '',
       surname: '',
       pseudo: '',
@@ -33,8 +33,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  saveUser() {
-    const formValue = this.signupForm.value;
+  updateUser() {
+    const formValue = this.updateForm.value;
+    const id = Number(sessionStorage.getItem('id'));
     const name = 'name';
     const surname = 'surname';
     const pseudo = 'pseudo';
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
     const newsletter = 'newsletter';
 
     const newUser = new User(
-      null,
+      id,
       formValue[name],
       formValue[surname],
       formValue[pseudo],
@@ -51,7 +52,11 @@ export class RegisterComponent implements OnInit {
       formValue[password],
       formValue[newsletter]);
 
-    this.authenticationService.addUser(newUser);
-    this.router.navigate(['/welcome']);
+    this.authenticationService.updateUser(newUser);
+    sessionStorage.removeItem(('id'));
+    sessionStorage.removeItem('mail');
+    sessionStorage.removeItem('pseudo');
+    this.router.navigate(['generalmsg']);
   }
+
 }

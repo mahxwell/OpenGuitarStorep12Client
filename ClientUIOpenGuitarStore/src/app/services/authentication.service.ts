@@ -31,17 +31,21 @@ export class AuthenticationService {
       );
   }
 
-  updateUser(user: User) {
+  updateUser(userToModify: User) {
     this.http
-      .post(this.userUrl + 'update/', user)
+      .put(this.userUrl + 'update/', userToModify)
       .subscribe(
         () => {
-          console.log('Maj terminé !');
+          console.log('Maj terminée !');
         },
         (error) => {
           console.log('Erreur ! : ' + error);
         }
       );
+    sessionStorage.removeItem(('id'));
+    sessionStorage.removeItem('mail');
+    sessionStorage.removeItem('pseudo');
+    this.router.navigate(['welcome']);
   }
 
   deleteUser() {
@@ -57,10 +61,6 @@ export class AuthenticationService {
         }
       );
 
-    sessionStorage.removeItem(('id'));
-    sessionStorage.removeItem('mail');
-    sessionStorage.removeItem('pseudo');
-    this.router.navigate(['welcome']);
   }
 
   authentication(mail: string, password: string) {

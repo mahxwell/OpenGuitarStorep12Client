@@ -43,6 +43,7 @@ export class GuitarComponent implements OnInit {
     } else {
       this.userConnected = false;
     }
+    sessionStorage.setItem('guitarid', String(this.guitar.guitarid));
   }
 
   getReview(guitaridguitar: number) {

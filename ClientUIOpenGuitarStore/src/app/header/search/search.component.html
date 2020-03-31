@@ -1,0 +1,35 @@
+<p>search works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap eCommerce Page Template</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<h2 class="text-center">LES GUITARES</h2>
+<hr>
+<div class="container" align="center">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let guitar of guitars;let i = index;">
+      <div class="col-md-8 pb-1 pb-md-0" align="center">
+        <div class="card">
+          <img class="card-img-top" src="assets/images/400X200.gif" a
+               lt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ guitar.guitarname }}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <button class="btn btn-primary" (click)="onViewGuitar(guitar.guitarid)">Détails</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<hr>
+</body>

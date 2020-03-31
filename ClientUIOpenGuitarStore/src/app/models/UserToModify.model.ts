@@ -1,11 +1,11 @@
-export class User {
-    id: number;
-    name: string;
-    surname: string;
-    pseudo: string;
-    mail: string;
-    password: string;
-    newsletter: string;
+export class UserToModify {
+  id: number;
+  name: string;
+  surname: string;
+  pseudo: string;
+  mail: string;
+  password: string;
+  newsletter: string;
 
 
   constructor(id: number, name: string, surname: string, pseudo: string, mail: string, password: string, newsletter: string) {

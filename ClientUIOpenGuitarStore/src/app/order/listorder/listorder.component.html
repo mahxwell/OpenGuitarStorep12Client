@@ -1,0 +1,36 @@
+<p>listorder works!</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap eCommerce Page Template</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<h2 class="text-center">VOS COMMANDES</h2>
+<hr>
+<div class="container" align="center">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let order of orders;let i = index;">
+      <div class="col-md-8 pb-1 pb-md-0" align="center">
+        <div class="card">
+          <img class="card-img-top" src="assets/images/400X200.gif" alt="Card image cap">
+          <div class="card-body">
+            <p>Commande numéro: {{i + 1}}</p>
+            <p>Nom du modèle : {{order.guitarneme}}</p>
+            <p>Commande effectuée le : {{ order.orderdate}}</p>
+            <p>Date estimée de reception : {{ order.orderdeliverydate}}</p>
+            <a class="nav-link" href="" style="color: red" (click)="deleteOrderById(order.orderid, order.guitaridguitar)">Supprimer ma
+              commande</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<hr>
+</body>
