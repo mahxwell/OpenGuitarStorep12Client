@@ -29,6 +29,10 @@
       </div>
     </li>
   </ul>
+  <div *ngIf="guitars.length==0">
+    <p style="color: red">Pas de Guitares correspondant à ce nom</p>
+  </div>
+  <br>
 </div>
 <hr>
 </body>

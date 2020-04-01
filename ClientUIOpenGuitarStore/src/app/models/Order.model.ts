@@ -3,6 +3,7 @@ export class Order {
   orderdate: string;
   orderdeliverydate: string;
   guitarneme: string;
+  guitarimageurl: string;
   guitaridguitar: number;
   costumeridcostumer: number;
   guitarmodelidguitarmodel: number;
@@ -12,6 +13,7 @@ export class Order {
               orderdate: string,
               orderdeliverydate: string,
               guitarneme: string,
+              guitarimageurl: string,
               guitaridguitar: number,
               costumeridcostumer: number,
               guitarmodelidguitarmodel: number) {
@@ -19,6 +21,7 @@ export class Order {
     this.orderdate = orderdate;
     this.orderdeliverydate = orderdeliverydate;
     this.guitarneme = guitarneme;
+    this.guitarimageurl = guitarimageurl;
     this.guitaridguitar = guitaridguitar;
     this.costumeridcostumer = costumeridcostumer;
     this.guitarmodelidguitarmodel = guitarmodelidguitarmodel;

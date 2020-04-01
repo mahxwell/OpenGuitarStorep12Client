@@ -10,6 +10,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<br>
 <h2 class="text-center">LES GUITARES</h2>
 <hr>
 <div class="container" align="left">
@@ -21,11 +22,15 @@
           <td><p align="center">Modèle : {{guitar.guitarname}}</p>
             <p align="center">Fabriquant : {{guitar.guitarbrand}}</p>
             <p align="center">Année du Modèle : {{guitar.guitaryear}}</p>
-            <p align="center">Disponibilité : {{guitar.stock}}</p>
-            <p align="center">Prix : {{guitar.guitarprice}}</p>
+            <p align="center" *ngIf="guitar.stock!='0'">Disponibilité : <span
+              style="color: forestgreen">{{guitar.stock}}</span></p>
+            <p align="center" *ngIf="guitar.stock=='0'">Disponibilité : <span style="color:red;">Epuisée</span></p>
+            <p align="center">Prix : <span style="color: forestgreen">{{guitar.guitarprice}}</span></p>
             <a class="nav-link" href="addreviews" align="center" *ngIf="userConnected==true">Donnez votre avis</a>
             <a class="nav-link" href="addorder" align="center" style="color: red"
-               *ngIf="userConnected==true">Acheter</a>
+               *ngIf="userConnected==true&&guitar.stock!='0'">Acheter</a>
+            <a class="nav-link" href="addreservation" align="center" *ngIf="userConnected==true && guitar.stock=='0'">
+              <span style="color:red;">Faire une réservation</span></a>
           </td>
         </tr>
       </table>
@@ -34,10 +39,12 @@
 </div>
 <hr>
 <h2 align="center">Avis Clients </h2>
+<br>
 <li class="list-group-item" align="center" *ngFor="let review of reviews;">
 
-  <p>{{review.reviewcostumername}} le {{review.reviewdate}} : {{review.reviewcomment}}</p>
-  <p>Note : {{review.reviewnote}} /10</p>
+  <p><span style="color:blue;">{{review.reviewcostumername}}</span> le <span
+    style="color: crimson">{{review.reviewdate}}</span> : {{review.reviewcomment}}</p>
+  <p>Note : <span style="color: red">{{review.reviewnote}}</span> /10</p>
 </li>
 <hr>
 </body>

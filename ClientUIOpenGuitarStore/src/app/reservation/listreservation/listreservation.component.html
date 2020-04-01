@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap eCommerce Page Template</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<br>
+<h2 class="text-center">VOS RESERVATIONS</h2>
+<hr>
+<div class="container" align="center">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let reservation of reservations;let i = index;">
+      <div class="col-md-8 pb-1 pb-md-0" align="center">
+        <div class="card" *ngIf="reservations.length>0">
+          <img class="card-img-top" src="{{reservation.guitarimageurl}}" alt="Card image cap">
+          <div class="card-body">
+            <p>Réservation numéro: {{i + 1}}</p>
+            <p>Nom du modèle : {{reservation.guitarbrand}} {{reservation.guitarname}}</p>
+            <p>Date du nouveau stock : <span style="color: forestgreen">{{ reservation.deliverydate}}</span></p>
+            <a class="nav-link" href="" style="color: red" (click)="deleteReservationById(reservation.reservationid)">Supprimer
+              ma
+              réservation</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="reservations.length==0">
+    <p style="color: red">Vous n'avez pas de réservations actuellement</p>
+  </div>
+</div>
+<hr>
+</body>

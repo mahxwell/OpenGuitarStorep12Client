@@ -24,6 +24,12 @@ import {SearchComponent} from './header/search/search.component';
 import {OrderComponent} from './order/order.component';
 import {AddorderComponent} from './order/addorder/addorder.component';
 import {ListorderComponent} from './order/listorder/listorder.component';
+import {ReservationService} from './services/reservation.service';
+import {OrderService} from './services/order.service';
+import {ReviewService} from './services/review.service';
+import { ReservationComponent } from './reservation/reservation.component';
+import { AddreservationComponent } from './reservation/addreservation/addreservation.component';
+import { ListreservationComponent } from './reservation/listreservation/listreservation.component';
 
 const appRoutes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
@@ -39,7 +45,9 @@ const appRoutes: Routes = [
   {path: 'addreviews', component: AddreviewComponent},
   {path: 'search', component: SearchComponent},
   {path: 'addorder', component: AddorderComponent},
-  {path: 'listorder', component: ListorderComponent}
+  {path: 'listorder', component: ListorderComponent},
+  {path: 'addreservation', component: AddreservationComponent},
+  {path: 'listreservation', component: ListreservationComponent}
 ];
 
 @NgModule({
@@ -60,7 +68,10 @@ const appRoutes: Routes = [
     SearchComponent,
     OrderComponent,
     AddorderComponent,
-    ListorderComponent
+    ListorderComponent,
+    ReservationComponent,
+    AddreservationComponent,
+    ListreservationComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +80,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserService, GuitarsService, AuthenticationService],
+  providers: [UserService, GuitarsService, AuthenticationService, ReservationService, OrderService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

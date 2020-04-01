@@ -12,10 +12,12 @@ import {User} from '../../models/User.model';
 export class AccountmodifyComponent implements OnInit {
 
   updateForm: FormGroup;
+  newsletterbool: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
               private router: Router) {
+    this.newsletterbool = false;
   }
 
   ngOnInit(): void {
@@ -41,7 +43,6 @@ export class AccountmodifyComponent implements OnInit {
     const pseudo = 'pseudo';
     const mail = 'mail';
     const password = 'password';
-    const newsletter = 'newsletter';
 
     const newUser = new User(
       id,
@@ -50,7 +51,7 @@ export class AccountmodifyComponent implements OnInit {
       formValue[pseudo],
       formValue[mail],
       formValue[password],
-      formValue[newsletter]);
+      this.newsletterbool);
 
     this.authenticationService.updateUser(newUser);
     sessionStorage.removeItem(('id'));

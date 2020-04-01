@@ -12,10 +12,12 @@ import {User} from '../../models/User.model';
 export class RegisterComponent implements OnInit {
 
   signupForm: FormGroup;
+  newsletterbool: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
               private router: Router) {
+    this.newsletterbool = false;
   }
 
   ngOnInit(): void {
@@ -40,7 +42,6 @@ export class RegisterComponent implements OnInit {
     const pseudo = 'pseudo';
     const mail = 'mail';
     const password = 'password';
-    const newsletter = 'newsletter';
 
     const newUser = new User(
       null,
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
       formValue[pseudo],
       formValue[mail],
       formValue[password],
-      formValue[newsletter]);
+      this.newsletterbool);
 
     this.authenticationService.addUser(newUser);
     this.router.navigate(['/welcome']);

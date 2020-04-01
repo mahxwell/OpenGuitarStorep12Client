@@ -19,10 +19,18 @@
       <a class="nav-link" href="listorder" style="color: forestgreen">Voir les commandes en cours</a>
       <br/>
       <br/>
+      <a class="nav-link" href="listreservation" style="color: forestgreen">Voir les reservations en cours</a>
+      <br/>
+      <br/>
       <a class="nav-link" href="accountmodify" style="color: red">Modifier mon compte</a>
       <br/>
       <br/>
-      <a class="nav-link" href="" style="color: red" (click)="deleteUserAccount()">Supprimer mon compte</a>
+      <div *ngIf="orders.length<=0">
+        <a class="nav-link" href="" style="color: red" (click)="deleteUserAccount()">Supprimer mon compte</a>
+      </div>
+      <div *ngIf="orders.length>0">
+        <p style="color: red"> Vous ne pouvez pas supprimer votre compte si vous avez des commandes en cours !</p>
+      </div>
       <br/>
       <br/>
     </section>

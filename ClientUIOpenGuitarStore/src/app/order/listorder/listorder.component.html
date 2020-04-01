@@ -10,6 +10,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<br>
 <h2 class="text-center">VOS COMMANDES</h2>
 <hr>
 <div class="container" align="center">
@@ -17,19 +18,24 @@
     <li class="list-group-item" *ngFor="let order of orders;let i = index;">
       <div class="col-md-8 pb-1 pb-md-0" align="center">
         <div class="card">
-          <img class="card-img-top" src="assets/images/400X200.gif" alt="Card image cap">
+          <img class="card-img-top" src="{{order.guitarimageurl}}" alt="Card image cap">
           <div class="card-body">
             <p>Commande numéro: {{i + 1}}</p>
             <p>Nom du modèle : {{order.guitarneme}}</p>
-            <p>Commande effectuée le : {{ order.orderdate}}</p>
-            <p>Date estimée de reception : {{ order.orderdeliverydate}}</p>
-            <a class="nav-link" href="" style="color: red" (click)="deleteOrderById(order.orderid, order.guitaridguitar)">Supprimer ma
+            <p>Commande effectuée le : <span style="color: blue">{{ order.orderdate}} </span></p>
+            <p>Date estimée de reception : <span style="color: forestgreen">{{ order.orderdeliverydate}}</span></p>
+            <a class="nav-link" href="" style="color: red"
+               (click)="deleteOrderById(order.orderid, order.guitaridguitar)">Supprimer ma
               commande</a>
           </div>
         </div>
       </div>
     </li>
   </ul>
+  <div *ngIf="orders.length==0">
+    <p style="color: red">Vous n'avez pas de commandes actuellement</p>
+  </div>
+  <br>
 </div>
 <hr>
 </body>
